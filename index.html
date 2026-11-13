@@ -79,13 +79,13 @@
     <div class="wrap">
       <div class="kicker">Giao diện</div>
       <h2 class="sec-title">Tối giản, tập trung vào việc</h2>
-      <div class="shots">
-        <figure><img class="phone" src="assets/shot_radar.png" alt="Radar" loading="lazy"><figcaption>Cả team trên một màn radar</figcaption></figure>
-        <figure><img class="phone" src="assets/shot_voice.png" alt="Voice" loading="lazy"><figcaption>Giao việc bằng giọng nói</figcaption></figure>
-        <figure><img class="phone" src="assets/shot_progress.png" alt="Tiến độ" loading="lazy"><figcaption>Theo dõi tiến độ</figcaption></figure>
-        <figure><img class="phone" src="assets/shot_goals.png" alt="Mục tiêu" loading="lazy"><figcaption>Mục tiêu chung, một nhịp</figcaption></figure>
-        <figure><img class="phone" src="assets/shot_reviews.png" alt="Đánh giá" loading="lazy"><figcaption>Bảng đánh giá minh bạch</figcaption></figure>
-        <figure><img class="phone" src="assets/shot_task.png" alt="Trao đổi" loading="lazy"><figcaption>Trao đổi ngay trên việc</figcaption></figure>
+      <div class="shots-stage"><div class="shots" id="shots-row">
+        <figure><div class="phone-wrap">img class="phone" src="assets/shot_radar.png" alt="Radar" loading="lazy"></div><figcaption>Cả team trên một màn radar</figcaption></figure>
+        <figure><div class="phone-wrap">img class="phone" src="assets/shot_voice.png" alt="Voice" loading="lazy"></div><figcaption>Giao việc bằng giọng nói</figcaption></figure>
+        <figure><div class="phone-wrap">img class="phone" src="assets/shot_progress.png" alt="Tiến độ" loading="lazy"></div><figcaption>Theo dõi tiến độ</figcaption></figure>
+        <figure><div class="phone-wrap">img class="phone" src="assets/shot_goals.png" alt="Mục tiêu" loading="lazy"></div><figcaption>Mục tiêu chung, một nhịp</figcaption></figure>
+        <figure><div class="phone-wrap">img class="phone" src="assets/shot_reviews.png" alt="Đánh giá" loading="lazy"></div><figcaption>Bảng đánh giá minh bạch</figcaption></figure>
+        <figure><div class="phone-wrap">img class="phone" src="assets/shot_task.png" alt="Trao đổi" loading="lazy"></div><figcaption>Trao đổi ngay trên việc</figcaption></figure>
       </div>
     </div>
   </section>
@@ -140,6 +140,28 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="radar.js"></script>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){var row=document.getElementById('shots-row');if(!row)return;
+ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ var stage=row.parentElement;
+ stage.addEventListener('pointermove',function(e){var r=stage.getBoundingClientRect();
+  var x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
+  row.style.transform='rotateY('+(x*10)+'deg) rotateX('+(-y*8)+'deg)';});
+ stage.addEventListener('pointerleave',function(){row.style.transform='';});
+})();
+</script>
+<script>
+(function(){
+ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ var sel=['.sec-title','.sec-sub','.step','.card','.shots figure','.band','.pill','.kicker'];
+ var els=[];document.querySelectorAll(sel.join(',')).forEach(function(e){e.classList.add('reveal');els.push(e);});
+ // stagger theo nhóm anh em
+ document.querySelectorAll('.steps,.feat,.pill-row').forEach(function(g){
+   var i=0;[].forEach.call(g.children,function(c){if(c.classList.contains('reveal')){c.classList.add('d'+Math.min(++i,3));}});});
+ var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.15});
+ els.forEach(function(e){io.observe(e);});
+})();
+</script>
 </body>
 </html>
