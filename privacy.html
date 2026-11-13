@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chính sách quyền riêng tư — Zync</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/icon.png" alt="Zync"> Zync</a>
+<div class="spacer"></div>
+<a class="link" href="index.html">Trang chủ</a>
+<a class="link" href="privacy.html">Quyền riêng tư</a>
+<a class="link" href="terms.html">Điều khoản</a>
+</div></header>
+<main class="doc">
+<h1>Chính sách quyền riêng tư</h1>
+<div class="updated">Cập nhật lần cuối: 13/11/2026</div>
+
+<p>Zync ("chúng tôi") là ứng dụng quản lý công việc cho nhóm nhỏ. Chính sách này giải thích chúng tôi thu thập dữ liệu gì, dùng để làm gì và bạn kiểm soát ra sao.</p>
+
+<h2>1. Dữ liệu chúng tôi thu thập</h2>
+<ul>
+<li><b>Tài khoản:</b> email (đăng nhập bằng magic link hoặc Google), tên hiển thị, biệt danh, ảnh đại diện, chức danh bạn tự nhập.</li>
+<li><b>Nội dung công việc:</b> task bạn tạo hoặc được giao, trạng thái, deadline, tiến độ, lý do khi "kẹt", bình luận và lời nhắn, mục tiêu team.</li>
+<li><b>Thông tin team:</b> bạn thuộc team nào, vai trò (trưởng nhóm/thành viên), mã mời.</li>
+<li><b>Sử dụng:</b> số lượt dùng tính năng giọng nói trong tháng (để áp hạn mức gói Free).</li>
+</ul>
+
+<h2>2. Giọng nói được xử lý thế nào</h2>
+<p>Khi bạn dùng tính năng giao việc bằng giọng nói, phần <b>nhận dạng giọng nói chạy ngay trên thiết bị của bạn</b>. Chúng tôi <b>không ghi, không tải lên và không lưu trữ file âm thanh</b>. Chỉ phần <b>văn bản</b> kết quả được gửi tới máy chủ của chúng tôi để chuyển thành task.</p>
+
+<h2>3. Dịch vụ AI</h2>
+<p>Văn bản từ câu nói (hoặc câu lệnh) được gửi tới Google Gemini thông qua máy chủ của chúng tôi để bóc tách thành các trường của task (người nhận, nội dung, hạn, mức ưu tiên). Chúng tôi chỉ gửi phần văn bản cần thiết cho việc này.</p>
+
+<h2>4. Nơi lưu trữ</h2>
+<p>Dữ liệu được lưu trên hạ tầng Supabase (cơ sở dữ liệu PostgreSQL). Cơ chế bảo mật theo dòng (Row Level Security) đảm bảo thành viên của một team không thể đọc dữ liệu của team khác.</p>
+
+<h2>5. Chia sẻ dữ liệu</h2>
+<p>Chúng tôi <b>không bán</b> dữ liệu cá nhân. Dữ liệu chỉ được xử lý bởi các nhà cung cấp dịch vụ cần thiết:</p>
+<ul>
+<li><b>Supabase</b> — lưu trữ và xác thực.</li>
+<li><b>Google</b> — đăng nhập bằng Google và dịch vụ AI Gemini.</li>
+</ul>
+<p>Trong một team, các thành viên thấy được nội dung công việc liên quan theo vai trò của họ (ví dụ trưởng nhóm thấy task của cả team).</p>
+
+<h2>6. Quyền của bạn</h2>
+<ul>
+<li>Chỉnh sửa hồ sơ và thông tin cá nhân trong app.</li>
+<li>Rời khỏi team bất cứ lúc nào.</li>
+<li><b>Xoá tài khoản</b> ngay trong phần Cài đặt — thao tác này xoá hồ sơ, tư cách thành viên và dữ liệu liên quan của bạn, không thể khôi phục.</li>
+</ul>
+
+<h2>7. Trẻ em</h2>
+<p>Zync không hướng tới trẻ em dưới 13 tuổi (hoặc dưới độ tuổi tối thiểu theo quy định tại khu vực của bạn).</p>
+
+<h2>8. Thay đổi chính sách</h2>
+<p>Khi cập nhật chính sách, chúng tôi sẽ đổi ngày "Cập nhật lần cuối" phía trên và, nếu là thay đổi quan trọng, thông báo trong ứng dụng.</p>
+
+<h2>9. Liên hệ</h2>
+<p>Thắc mắc về quyền riêng tư, liên hệ: <a href="mailto:hello@zync.app">hello@zync.app</a>.</p>
+</main>
+<footer><div class="wrap"><div class="legal">© <span id="yr"></span> Zync · <a href="privacy.html">Quyền riêng tư</a> · <a href="terms.html">Điều khoản</a></div></div></footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body></html>

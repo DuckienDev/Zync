@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zync — Giao việc bằng giọng nói cho micro-team</title>
+<meta name="description" content="Zync là app quản lý việc cho nhóm nhỏ: trưởng nhóm nói, AI tạo task, cả team theo dõi trên một màn radar.">
+<meta property="og:title" content="Zync — Giao việc bằng giọng nói">
+<meta property="og:description" content="Nói một câu, cả team cùng một nhịp. Radar theo dõi ai đang chạy tốt, ai đang kẹt.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/icon.png" alt="Zync"> Zync</a>
+    <div class="spacer"></div>
+    <a class="link" href="#how">Cách dùng</a>
+    <a class="link" href="#features">Tính năng</a>
+    <a class="link" href="#shots">Giao diện</a>
+    <a class="link" href="privacy.html">Quyền riêng tư</a>
+    <a class="btn primary" href="#get">Tải app</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div id="radar-stage" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Dành cho nhóm 3–10 người</span>
+          <h1>Giao việc chỉ bằng <span class="grad-text">giọng nói</span>.</h1>
+          <p class="lead">Trưởng nhóm nói một câu, AI tạo task có người nhận và deadline. Thành viên vuốt một cái để cập nhật.</p>
+          <div class="cta">
+            <a class="btn primary" href="#get">Tải Zync</a>
+            <a class="btn" href="#how">Xem cách hoạt động</a>
+          </div>
+          <p class="note">Nói là xong. Radar lo phần còn lại.</p>
+        </div>
+        <div class="hero-right" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="kicker">Cách dùng</div>
+      <h2 class="sec-title">Ba bước, không cần gõ phím</h2>
+      <p class="sec-sub">Zync bỏ hết thao tác thừa. Việc đi từ miệng trưởng nhóm tới màn hình của đúng người.</p>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>Nói</h3><p>Giữ nút micro: “Giao cho Quân fix màn login, chiều mai xong”. Nhận dạng giọng nói chạy ngay trên máy.</p></div>
+        <div class="step"><div class="n">2</div><h3>AI tạo task</h3><p>AI bóc tách người nhận, nội dung và hạn thành một task gọn gàng. Thiếu gì bạn chỉnh trong vài giây.</p></div>
+        <div class="step"><div class="n">3</div><h3>Vuốt để xong</h3><p>Thành viên vuốt phải là Xong, vuốt trái là Kẹt. Trưởng nhóm thấy ngay trên radar, khỏi phải hỏi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="kicker">Tính năng</div>
+      <h2 class="sec-title">Đủ để điều phối cả nhóm</h2>
+      <div class="feat">
+        <div class="card"><div class="ic">🎙️</div><h3>Giao việc bằng giọng nói</h3><p>Một câu nói thành một task. Không lưu file ghi âm, chỉ xử lý văn bản.</p></div>
+        <div class="card"><div class="ic">📡</div><h3>Radar cả team</h3><p>Xanh là đúng tiến độ, đỏ là đang kẹt, cam là quá hạn — tất cả trong một màn.</p></div>
+        <div class="card"><div class="ic">📈</div><h3>Tiến độ & đánh giá</h3><p>Theo dõi đúng hạn, hoàn thành theo 30 ngày; bảng đánh giá minh bạch.</p></div>
+        <div class="card"><div class="ic">🎯</div><h3>Mục tiêu chung</h3><p>Đặt mục tiêu team và mục tiêu tháng để cả nhóm đi cùng một nhịp.</p></div>
+        <div class="card"><div class="ic">💬</div><h3>Trao đổi nhanh</h3><p>Comment ngay trên task bằng gõ hoặc giọng nói, nhắn riêng cho đồng nghiệp.</p></div>
+        <div class="card"><div class="ic">🔒</div><h3>Riêng tư</h3><p>Dữ liệu mỗi team tách biệt hoàn toàn ở tầng cơ sở dữ liệu.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shots">
+    <div class="wrap">
+      <div class="kicker">Giao diện</div>
+      <h2 class="sec-title">Tối giản, tập trung vào việc</h2>
+      <div class="shots">
+        <figure><img class="phone" src="assets/shot_radar.png" alt="Radar" loading="lazy"><figcaption>Cả team trên một màn radar</figcaption></figure>
+        <figure><img class="phone" src="assets/shot_voice.png" alt="Voice" loading="lazy"><figcaption>Giao việc bằng giọng nói</figcaption></figure>
+        <figure><img class="phone" src="assets/shot_progress.png" alt="Tiến độ" loading="lazy"><figcaption>Theo dõi tiến độ</figcaption></figure>
+        <figure><img class="phone" src="assets/shot_goals.png" alt="Mục tiêu" loading="lazy"><figcaption>Mục tiêu chung, một nhịp</figcaption></figure>
+        <figure><img class="phone" src="assets/shot_reviews.png" alt="Đánh giá" loading="lazy"><figcaption>Bảng đánh giá minh bạch</figcaption></figure>
+        <figure><img class="phone" src="assets/shot_task.png" alt="Trao đổi" loading="lazy"><figcaption>Trao đổi ngay trên việc</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker">Quyền riêng tư</div>
+      <h2 class="sec-title">Nhanh mà vẫn kín đáo</h2>
+      <p class="sec-sub">Zync được thiết kế để member thấy hữu ích, không phải bị giám sát.</p>
+      <div class="pill-row">
+        <div class="pill"><b>Không lưu ghi âm</b> — nhận dạng giọng nói chạy trên máy</div>
+        <div class="pill"><b>Dữ liệu tách biệt</b> theo từng team ở tầng database</div>
+        <div class="pill"><b>Xoá tài khoản</b> và dữ liệu ngay trong app</div>
+        <div class="pill"><b>Không bán dữ liệu</b> cho bên thứ ba</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="get">
+    <div class="band">
+      <h2>Nói một câu, cả team cùng một nhịp.</h2>
+      <p>Zync sắp có mặt trên Google Play và App Store. Để lại dấu để biết khi phát hành.</p>
+      <a class="btn primary" href="mailto:hello@zync.app?subject=Zync%20-%20Đăng%20ký%20nhận%20tin">Nhận thông báo khi ra mắt</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="#top"><img src="assets/icon.png" alt="Zync" style="width:24px;height:24px;border-radius:6px"> Zync</a>
+        <p style="max-width:34ch;margin-top:10px">Giao việc bằng giọng nói cho micro-team. Nói là xong.</p>
+      </div>
+      <div class="spacer"></div>
+      <div>
+        <div style="color:var(--text);font-weight:600;margin-bottom:8px">Sản phẩm</div>
+        <div><a href="#features">Tính năng</a></div>
+        <div><a href="#shots">Giao diện</a></div>
+        <div><a href="#how">Cách dùng</a></div>
+      </div>
+      <div>
+        <div style="color:var(--text);font-weight:600;margin-bottom:8px">Pháp lý</div>
+        <div><a href="privacy.html">Chính sách quyền riêng tư</a></div>
+        <div><a href="terms.html">Điều khoản sử dụng</a></div>
+        <div><a href="mailto:hello@zync.app">Liên hệ</a></div>
+      </div>
+    </div>
+    <div class="legal">© <span id="yr"></span> Zync. Mọi quyền được bảo lưu.</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="radar.js"></script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
