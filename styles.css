@@ -98,6 +98,22 @@ section{position:relative;z-index:1;padding:72px 0}
 .band h2{font-size:clamp(26px,4vw,38px)}
 .band p{color:var(--muted);margin:12px auto 24px;max-width:50ch}
 
+/* beta signup form */
+.beta-form{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.beta-form input{flex:1;min-width:220px;background:var(--surface);color:var(--text);
+  border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px;
+  font-family:inherit;outline:none;transition:.2s}
+.beta-form input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(77,240,224,.12)}
+.beta-form button{white-space:nowrap}
+.beta-msg{min-height:1.4em;margin:14px auto 0;font-size:14px;max-width:50ch}
+.beta-next{max-width:52ch;margin:18px auto 0;text-align:left;background:var(--surface);
+  border:1px solid var(--line);border-radius:16px;padding:18px 22px}
+.beta-next-title{color:var(--text)!important;font-weight:600;margin:0 0 6px!important}
+.beta-next ol{margin:0;padding-left:20px;color:#d4dad8}
+.beta-next li{margin:6px 0}
+.beta-link{color:var(--cyan);text-decoration:underline;text-underline-offset:2px}
+.beta-small{font-size:13px;color:var(--muted)!important;margin:12px 0 0!important}
+
 /* footer */
 footer{border-top:1px solid var(--line);padding:48px 0;margin-top:40px;color:var(--muted);font-size:14px}
 footer .cols{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start}

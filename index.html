@@ -23,7 +23,7 @@
     <a class="link" href="#features">Tính năng</a>
     <a class="link" href="#shots">Giao diện</a>
     <a class="link" href="privacy.html">Quyền riêng tư</a>
-    <a class="btn primary" href="#get">Tải app</a>
+    <a class="btn primary" href="#get">Dùng thử</a>
   </div>
 </header>
 
@@ -37,7 +37,7 @@
           <h1>Giao việc chỉ bằng <span class="grad-text">giọng nói</span>.</h1>
           <p class="lead">Trưởng nhóm nói một câu, AI tạo task có người nhận và deadline. Thành viên vuốt một cái để cập nhật.</p>
           <div class="cta">
-            <a class="btn primary" href="#get">Tải Zync</a>
+            <a class="btn primary" href="#get">Dùng thử Zync</a>
             <a class="btn" href="#how">Xem cách hoạt động</a>
           </div>
           <p class="note">Nói là xong. Radar lo phần còn lại.</p>
@@ -106,9 +106,22 @@
 
   <section id="get">
     <div class="band">
-      <h2>Nói một câu, cả team cùng một nhịp.</h2>
-      <p>Zync sắp có mặt trên Google Play và App Store. Để lại dấu để biết khi phát hành.</p>
-      <a class="btn primary" href="mailto:hello@zync.app?subject=Zync%20-%20Đăng%20ký%20nhận%20tin">Nhận thông báo khi ra mắt</a>
+      <h2>Dùng thử Zync trước khi ra mắt</h2>
+      <p>Zync đang chạy thử nghiệm khép kín trên Google Play. Để lại email, bạn sẽ được mời vào nhóm tester và cài bản dùng thử miễn phí.</p>
+      <form id="beta-form" class="beta-form" novalidate>
+        <input id="beta-email" type="email" required inputmode="email" autocomplete="email"
+               placeholder="email@cua-ban.com" aria-label="Email đăng ký dùng thử">
+        <button class="btn primary" type="submit" id="beta-submit">Đăng ký dùng thử</button>
+      </form>
+      <p class="beta-msg" id="beta-msg" role="status" aria-live="polite"></p>
+      <div class="beta-next" id="beta-next" hidden>
+        <p class="beta-next-title">Còn 2 bước để vào bản test:</p>
+        <ol>
+          <li id="beta-step-group">Dùng <b>chính email Google vừa nhập</b> để <a id="beta-group" class="beta-link" href="#" target="_blank" rel="noopener">tham gia nhóm tester</a>.</li>
+          <li>Mở <a id="beta-play" class="beta-link" href="#" target="_blank" rel="noopener">trang Zync trên Google Play</a> rồi bấm <b>Cài đặt</b>.</li>
+        </ol>
+        <p class="beta-small">Email phải là tài khoản Google bạn đang dùng trên điện thoại Android thì mới cài được bản test.</p>
+      </div>
     </div>
   </section>
 </main>
@@ -162,6 +175,54 @@ document.getElementById('yr').textContent=new Date().getFullYear();
    var i=0;[].forEach.call(g.children,function(c){if(c.classList.contains('reveal')){c.classList.add('d'+Math.min(++i,3));}});});
  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.15});
  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+<script>
+/* Đăng ký dùng thử (closed testing) — lưu email vào Supabase (chỉ ghi).
+   CẦN ĐIỀN groupUrl sau khi tạo Google Group làm danh sách tester. */
+(function(){
+  var BETA={
+    url:'https://gyeifbokfcfoetevjduu.supabase.co',
+    key:'sb_publishable_lTCOTCvm1P_YQie17A0Juw_v-gXTdpx',
+    // Link "Join group" của Google Group tester (điền sau khi tạo group):
+    groupUrl:'',
+    // Link bản test trên Google Play:
+    playUrl:'https://play.google.com/store/apps/details?id=com.zync.dy'
+  };
+  var form=document.getElementById('beta-form'),
+      input=document.getElementById('beta-email'),
+      btn=document.getElementById('beta-submit'),
+      msg=document.getElementById('beta-msg'),
+      next=document.getElementById('beta-next'),
+      stepGroup=document.getElementById('beta-step-group'),
+      aGroup=document.getElementById('beta-group'),
+      aPlay=document.getElementById('beta-play');
+  if(!form)return;
+  aPlay.href=BETA.playUrl;
+  function showNext(){
+    if(BETA.groupUrl){aGroup.href=BETA.groupUrl;}
+    else{stepGroup.innerHTML='Chờ email lời mời vào nhóm tester từ chúng tôi (thường trong 1–2 ngày).';}
+    next.hidden=false;
+  }
+  function setMsg(t,ok){msg.textContent=t;msg.style.color=ok?'var(--green)':'var(--danger)';}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=(input.value||'').trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){setMsg('Email chưa hợp lệ, kiểm tra lại nhé.',false);return;}
+    btn.disabled=true;var old=btn.textContent;btn.textContent='Đang gửi…';
+    fetch(BETA.url+'/rest/v1/trial_requests',{
+      method:'POST',
+      headers:{'apikey':BETA.key,'Authorization':'Bearer '+BETA.key,
+        'Content-Type':'application/json','Prefer':'return=minimal'},
+      body:JSON.stringify({email:email,locale:'vi',source:'web'})
+    }).then(function(r){
+      if(r.status===201){setMsg('Đã nhận email của bạn! Làm nốt các bước bên dưới.',true);showNext();form.reset();}
+      else if(r.status===409){setMsg('Email này đã đăng ký rồi — xem các bước bên dưới.',true);showNext();}
+      else{return r.text().then(function(t){throw new Error(t||('HTTP '+r.status));});}
+    }).catch(function(){
+      setMsg('Gửi chưa được, thử lại hoặc email hello@zync.app giúp mình nhé.',false);
+    }).then(function(){btn.disabled=false;btn.textContent=old;});
+  });
 })();
 </script>
 </body>
